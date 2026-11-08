@@ -17,8 +17,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <!-- Ajustado para Java 17 ou 21 (versões LTS suportadas pelo Spring Boot 3) -->
         <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
