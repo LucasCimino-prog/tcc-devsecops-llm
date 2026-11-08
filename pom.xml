@@ -12,7 +12,7 @@
     <properties>
         <sonar.organization>lucascimino-prog</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.sources>src/main/java</sonar.sources>
+
     </properties>
 
     <modules>
