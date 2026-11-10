@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: secure-user-api
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/prompt_informado_gpt}
+    username: ${DB_USERNAME:tcc_user}
+    password: ${DB_PASSWORD:tcc123}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+server:
+  port: 8080
+  error:
+    include-message: never
+    include-stacktrace: never
+
+app:
+  jwt:
+    secret: ZGV2c2Vjb3BzLXRjYy11bmlwYWMtY2hhdmUtbXVpdG8tc2VndXJhLWV4ZW1wbG8=
+    expiration: 900000
