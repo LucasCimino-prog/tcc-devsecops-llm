@@ -6,14 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="prompt-informado-gemini" />
+        <module name="prompt-ingenuo-gemini" />
         <module name="prompt-ingenuo-gpt" />
         <module name="usuarios-api" />
-        <module name="prompt-ingenuo-gemini" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="prompt-informado-gemini" options="-parameters" />
       <module name="prompt-ingenuo-gemini" options="-parameters" />
       <module name="prompt-ingenuo-gpt" options="-parameters" />
       <module name="usuarios-api" options="-parameters" />

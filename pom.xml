@@ -20,5 +20,6 @@
         <module>prompt-ingenuo-gpt</module>
         <module>prompt-ingenuo-claude</module>
         <module>prompt-informado-gemini</module>
+        <module>prompt-informado-gpt</module>
     </modules>
 </project>
