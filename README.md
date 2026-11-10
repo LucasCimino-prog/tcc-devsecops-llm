@@ -50,3 +50,42 @@ tcc-devsecops-llm/
 ├── prompt-informado-gpt/       # (Fase 2) Código gerado pelo GPT (com PostgreSQL)
 ├── prompt-informado-claude/    # (Fase 2) Código gerado pelo Claude (Defesa em Profundidade)
 └── pom.xml                     # Orquestrador multi-módulo Maven
+```
+## Principais Resultados
+
+**Qualidade Estrutural:** Todos os modelos apresentaram **Rating A** em Manutenibilidade e Confiabilidade (0 bugs lógicos e 0 *code smells* impeditivos).
+
+**Falsos Positivos de Framework:** A varredura identificou 5 alertas de severidade **High** associados à desativação do CSRF. Como a API implementa uma arquitetura **Stateless** baseada em JWT (Bearer Tokens), estes apontamentos foram classificados tecnicamente como falsos positivos do analisador estático.
+
+**Desempenho do Gemini 3.8 Flash:** O modelo demonstrou alta consistência sintática e estrutural, gerando código limpo e funcional compatível com o ecossistema Spring Boot. Na Fase 2 (Informada), adotou o armazenamento em memória (H2) e aplicou o Spring Security padrão, compartilhando dos mesmos alertas estruturais de framework identificados nos demais modelos.
+
+**Maturidade Arquitetural (GPT-6 Luna):** Demonstrou viés de prontidão para produção (**Production-Readiness**), implementando espontaneamente um banco de dados real (PostgreSQL) e **Database as Code** (Flyway).
+
+**Defesa em Profundidade vs. Novas Superfícies (Claude 5.5 Sonnet):** O modelo Claude gerou o artefato mais seguro contra **BOLA** ao criar rotas centralizadas (`/me`) e logs de auditoria para tentativas de acesso cruzado. No entanto, a passagem direta da variável de ID para o console gerou um alerta de **Log Injection** (CWE-117, severidade **Low**), ilustrando como a implementação de defesas complexas pode introduzir vetores de risco colaterais se a sanitização de entradas não for aplicada de ponta a ponta.
+
+## Instruções de Execução Local
+
+Para rodar os módulos localmente e realizar chamadas com o Insomnia:
+
+**Pré-requisitos:** JDK 17, Apache Maven 3.9+ e PostgreSQL (exigido pelo módulo do GPT).
+
+Clone este repositório:
+
+```bash
+git clone [https://github.com/LucasCimino-prog/tcc-devsecops-llm.git](https://github.com/LucasCimino-prog/tcc-devsecops-llm.git)
+cd tcc-devsecops-llm
+```
+
+## Licença e Ética Acadêmica
+
+Este repositório foi criado para fins estritamente acadêmicos e de pesquisa (Resolução CNS n.º 510/2016). Os trechos de código presentes nos subdiretórios foram gerados integralmente pelos respectivos modelos de Inteligência Artificial para fins de avaliação estática, configurando os próprios objetos de estudo da pesquisa, sem utilização de código proprietário de terceiros.
+
+## Histórico de Interações (Prompts e Chats)
+
+Para fins de auditoria, transparência e reprodutibilidade da pesquisa, os links públicos das sessões de engenharia de prompt utilizadas para gerar os artefatos de cada modelo estão listados abaixo:
+
+| Modelo LLM | Fase 1 (Geração Base / Ingênua) | Fase 2 (Geração Segura / Informada) |
+| :--- | :--- | :--- |
+| **Gemini 3.8 Flash** | [https://share.gemini.google/OXqCXtrmgdWu](URL_DO_CHAT_GEMINI_FASE_1) | [https://share.gemini.google/pHE9Wj0DHwJQ](URL_DO_CHAT_GEMINI_FASE_2) |
+| **GPT-6 Luna** | [https://chatgpt.com/share/6aee08ee-5518-83e9-b693-5472011f7917](URL_DO_CHAT_GPT_FASE_1) | [https://chatgpt.com/share/6aef5786-812c-83e9-97aa-f125a1beaf25](URL_DO_CHAT_GPT_FASE_2) |
+| **Claude 5.5 Sonnet** | [https://claude.ai/share/63082785-db1c-4526-9416-89ec09aa47d6](URL_DO_CHAT_CLAUDE_FASE_1) | [https://claude.ai/share/a9c25edc-2d3d-452e-9d93-0141923f807b](URL_DO_CHAT_CLAUDE_FASE_2) |
