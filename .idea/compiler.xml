@@ -9,6 +9,7 @@
         <module name="prompt-informado-gemini" />
         <module name="prompt-ingenuo-gemini" />
         <module name="prompt-ingenuo-gpt" />
+        <module name="secure-api" />
         <module name="usuarios-api" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="prompt-informado-gemini" options="-parameters" />
       <module name="prompt-ingenuo-gemini" options="-parameters" />
       <module name="prompt-ingenuo-gpt" options="-parameters" />
+      <module name="secure-api" options="-parameters" />
       <module name="usuarios-api" options="-parameters" />
     </option>
   </component>

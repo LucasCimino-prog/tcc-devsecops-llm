@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: secure-api-claude
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/prompt_informado_gpt}
+    username: ${DB_USERNAME:tcc_user}
+    password: ${DB_PASSWORD:tcc123}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+server:
+  port: 8080
+  error:
+    include-message: never
+    include-stacktrace: never
+
+app:
+  security:
+    jwt:
+      secret: ZGV2c2Vjb3BzLXRjYy11bmlwYWMtY2hhdmUtbXVpdG8tc2VndXJhLWV4ZW1wbG8=
+      issuer: secure-api-claude
+      expiration-minutes: 15
+
+  bootstrap:
+    admin-name: "Admin System"
+    admin-email: "admin@email.com"
+    admin-password: "AdminPassword123!"
