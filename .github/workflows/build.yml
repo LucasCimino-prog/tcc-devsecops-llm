@@ -34,4 +34,4 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B compile org.sonarsource.scanner.maven:sonar-maven-plugin:sonar "-Dsonar.projectKey=LucasCimino-prog_tcc-devsecops-llm"
+        run: mvn -B compile org.sonarsource.scanner.maven:sonar-maven-plugin:sonar "-Dsonar.projectKey=LucasCimino-prog_tcc-devsecops-llm" -DskipTests

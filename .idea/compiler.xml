@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="prompt-informado-gemini" />
         <module name="prompt-ingenuo-gemini" />
+        <module name="prompt-informado-claude" />
         <module name="prompt-ingenuo-gpt" />
         <module name="secure-api" />
         <module name="usuarios-api" />
@@ -16,6 +17,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="prompt-informado-claude" options="-parameters" />
       <module name="prompt-informado-gemini" options="-parameters" />
       <module name="prompt-ingenuo-gemini" options="-parameters" />
       <module name="prompt-ingenuo-gpt" options="-parameters" />
